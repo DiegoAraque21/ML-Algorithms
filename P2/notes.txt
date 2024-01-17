@@ -1,0 +1,14 @@
+k-nn 
+
+- basado en distancias
+- normalizar los valores: restar la media y dividir por la desviación estándar
+- clasificacion: calcular distancia para predecir y quedarme con los k más cercanos
+
+distancias a considerar: 
+- euclidea
+- estudiar con diferentes valores de k
+
+
+continuo -> euclidea
+nominal -> ordinal 
+d = euclidea + ordinal 

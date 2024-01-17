@@ -1,0 +1,39 @@
+train:
+probabilidades a priori de las clase
+para cada uno de los atributos, calculamos la verosimilitud
+
+estas probabilidades hay que guardarlas, cuanto más eficiente mejor, maybe en un diccionario ?
+
+naive bayes:
+- puede trabajar con cualquiera de los dos tipos de atributos
+- conteo de frecuencias
+- hay que aplicar la corrección de laplace (+1) para datasets pequeños en los cuales 
+    a veces no hay suficientes ejemplos de una clase para que la probabilidad sea 0
+- aplicar la regla de la normal para los atributos continuos
+- train: calcular media y desviación tipica condicionada a cada valor de la clase
+
+
+clasificación:
+- se trabaja sobre test
+- el valor de la clase con maxima probabilidad a posteriori = la clase correspondiente
+- probabilidades a priori por las verosimilitudes
+- el método entrenamiento no tiene por qué devolver nada, sino que guarda el valor donde corresponde
+- el método clasifica: devuelve un vector con las predicciones de las filas de test {+,-,+,-,-,+,...}
+- el error es comparar la clase real con la clase predicha y ver cuántas coinciden
+- para atributos continuos: aplicar la regla de la distribucion normal
+
+---------------------------------------------------------
+scikit-learn
+- codificar los atributos nominales
+- qué ocurre cuando no los convierto y qué ocurre cuando los convierto
+- hay varias alternativas y vamos a probar onehotencoder
+- dentro de scikit-learn ya hay métodos equivalentes para la validación simple y cruzada
+- train_test_split y kfold
+- utilizar un fichero aparte con todo lo de scikit-learn o incluir lo de scikit-learn en nuestro propio código
+- que gaussiannb, multinomialnb y categoricalnb hereden de clasificador
+- comparar los resultados de usar los clasificadores de scikit-learn con los datasets
+    ver cuáles son lo mejores y justificar los resultados obtenidos.
+
+ENTREGA:
+- jupyter notebook contestando a las cuestiones
+- resultados en tablas para visualizar mejor

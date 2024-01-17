@@ -1,0 +1,62 @@
+regresion logistica:
+- implementar el algoritmo de descenso por gradiente -> entrenamiento
+- en el entrenmaiento: actualización de pesos
+- en funcion del algoritmo, tengo un modelo que depende del algoritmo que se use
+- los coeficientes finales del modelo son los pesos que nos ineteresan
+
+- en clasifica:
+- se usan los pesos finales del entrenamiento para predecir la clase finales
+- se llama a la funcion sigmoide con el calculo de w.x y se obtiene la clasificación
+- devolvemos el conjunto de clases de las instancias de test que deberian corresponder
+
+- puede haber overflow con math.exp, podemos capturar la excepcion y devolver 0
+
+
+scikit-learn:
+- LogisticRegression o SGDClassifier
+- el más parecido al nuestro es SGDClassifier
+- especial atención a los parámetros de entrada
+
+
+ESPACIO ROC
+- antes: evaluar clasificadores de grano grueso -> accuracy (correctas/total)
+- ahora: consiste en averiguar donde se falla y el tipo de fallo
+- creamos matriz de confusion con TP, TN, FP, FN
+- se definen unos ratios TPR y FPR
+- tasa de acierto en positivos
+- tasa de falsos positivos
+- estos valores nos permiten dibujar la curva ROC (x: FPR, y: TPR)
+- solo son puntos en el plano, porque tenemos clasificadores discretos
+
+
+NB -> hEART -> matriz confusion -> TPR/FPR -> par de puntos
+   -> WDBC -> matriz confusion -> TPR/FPR -> par de puntos
+
+espacio roc: puntos de la curva ROC
+
+si caen por encima o debajo de la diagonal, es mejor o peor que un clasificador aleatorio
+
+- hacer con todos los clasificadores para evaluarlos
+
+un grafico con 6 puntos o 3 graficos con 2 puntos cada uno (como queramos)
+
+- añadir métodos donde sea oportuno para calcular la matriz de confusión y los puntos de la curva ROC
+
+CURVA ROC:
+- algunos clasificadores nos dan un score
+- hay que definir un valor umbral para clasificar
+- en RL, el umbral es 0.5
+- se calcula TPR y FPR para el umbral
+- para dibujar la curva, se varia el umbral y se calcula TPR y FPR para cada umbral
+- cuando se cambia el umbral, se cambia la clasificación
+- esta curva suele ser una curva escalón
+- MÉTODO PARA CALCULAR CURVA ROC:
+    - empezando desde (0,0), ordeno los scores de todas las instancias de test de mayor a menor
+    - si la clase es positiva, subo una posición en y
+    - si la clase es negativa, avanzo una posición en x
+    - en verdad, esa curva, es una separación entre las dos clases
+
+- PARA AFINAR MAS:
+    - seguir pseudocodigo del articulo
+    - este tiene en cuenta los empates
+    

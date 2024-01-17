@@ -1,0 +1,15 @@
+ALGORTIMO GENÉTICO
+
+# esquema de representacion
+
+
+
+# base de reglas
+- numero de atributos de dataset
+- numero de valores que puede tener cada atributo
+- listado de reglas para cada individuo
+- ese listado de reglas puede variar
+
+# convertir regla en cadena de bits
+representar cada atributo como valores puede tener ese atributo
+
